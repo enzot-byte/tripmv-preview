@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Redesign do Painel — Trip Experience</title>
+<title>Painel — duas propostas | Trip Experience</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,97 +20,123 @@
   --body:'Figtree',system-ui,-apple-system,sans-serif;
 }
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper-2);color:var(--ink-2);font-family:var(--body);
-     font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.page{max-width:1240px;margin:0 auto;padding:36px 24px 80px}
+     font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+.page{max-width:1240px;margin:0 auto;padding:24px 16px 64px}
+@media(min-width:720px){.page{padding:36px 24px 80px}}
 
-.doc-head{margin-bottom:34px}
-.doc-head .eb{font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-              color:var(--ember);font-weight:700;margin:0 0 12px}
-.doc-head h1{font-family:var(--display);font-size:clamp(38px,5.6vw,66px);
-             line-height:.95;color:var(--ink);margin:0;letter-spacing:.005em}
-.doc-head p{margin-top:16px;max-width:60ch;font-size:17px;color:var(--ink-2)}
+/* ── CABEÇALHO DO DOC ── */
+.doc{margin-bottom:24px}
+.doc .eb{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+         color:var(--ember);font-weight:700;margin:0 0 10px}
+.doc h1{font-family:var(--display);font-size:clamp(30px,8vw,58px);line-height:.96;
+        color:var(--ink);margin:0;letter-spacing:.005em}
+.doc p{margin-top:14px;max-width:62ch;font-size:15.5px;color:var(--ink-2)}
+@media(min-width:720px){.doc p{font-size:17px}}
 
-/* ─────────── APP FRAME ─────────── */
+/* ── SELETOR DE PROPOSTA ── */
+.switch{position:sticky;top:0;z-index:60;background:var(--paper-2);
+        padding:14px 0 16px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+.sw-in{display:flex;gap:8px;flex-wrap:wrap}
+.sw-in button{flex:1 1 240px;border:1px solid var(--line);background:#fff;
+  border-radius:6px;padding:13px 16px;text-align:left;cursor:pointer;
+  font-family:inherit;transition:border-color .15s,box-shadow .15s}
+.sw-in button:hover{border-color:var(--ink-4)}
+.sw-in button.on{border-color:var(--ember);box-shadow:inset 0 0 0 1px var(--ember)}
+.sw-in button b{display:block;font-size:14.5px;font-weight:700;color:var(--ink)}
+.sw-in button span{display:block;font-size:12.5px;color:var(--ink-3);margin-top:3px;
+                   line-height:1.4}
+.sw-in button.on b{color:var(--ember-700)}
+
+.panelwrap{display:none}
+.panelwrap.on{display:block}
+
+/* ── APP ── */
 .app{background:var(--paper);border:1px solid var(--line);border-radius:6px;
-     overflow:hidden;box-shadow:0 18px 48px -22px rgba(20,31,41,.3)}
+     overflow:hidden;box-shadow:0 14px 40px -22px rgba(20,31,41,.28);margin-top:18px}
 
-/* topo */
-.top{background:var(--ink);padding:16px 22px;display:flex;align-items:center;
-     gap:18px;flex-wrap:wrap}
-.brandmark{width:40px;height:40px;border-radius:9px;flex:none;
-  background:radial-gradient(circle at 32% 28%,#2AC7F0 0 24%,transparent 25%),
-             radial-gradient(circle at 72% 62%,#F2318F 0 20%,transparent 21%),
-             radial-gradient(circle at 46% 80%,#F5D915 0 16%,transparent 17%),#1B242E}
-.brand b{color:#fff;font-size:16px;font-weight:700;display:block;letter-spacing:.01em}
-.brand small{color:var(--ink-4);font-size:12.5px}
-.top-sp{flex:1}
-.who{display:flex;align-items:center;gap:9px;color:#fff;font-size:13.5px;font-weight:500}
-.av{width:30px;height:30px;border-radius:50%;background:var(--ember);display:grid;
-    place-items:center;font-size:12.5px;font-weight:700;color:#fff}
-.sync{display:flex;align-items:center;gap:6px;font-size:12px;color:#8FC7A6;font-weight:600}
+.top{background:var(--ink);padding:13px 16px;display:flex;align-items:center;gap:12px;
+     flex-wrap:wrap}
+@media(min-width:640px){.top{padding:16px 22px;gap:18px}}
+.logo{height:36px;width:auto;border-radius:7px;background:#fff;padding:4px;flex:none}
+.wordmark{font-family:var(--display);color:#fff;font-size:19px;letter-spacing:.02em;
+          line-height:1}
+.wordmark small{display:block;font-family:var(--body);font-size:11.5px;
+                color:var(--ink-4);letter-spacing:0;font-weight:500;margin-top:3px}
+.top-sp{flex:1 1 auto}
+.who{display:flex;align-items:center;gap:8px;color:#fff;font-size:13px;font-weight:500}
+.av{width:28px;height:28px;border-radius:50%;background:var(--ember);display:grid;
+    place-items:center;font-size:12px;font-weight:700;color:#fff;flex:none}
+.sync{display:flex;align-items:center;gap:6px;font-size:11.5px;color:#8FC7A6;
+      font-weight:600}
 .sync i{width:7px;height:7px;border-radius:50%;background:#4FBE85;display:block;
-        font-style:normal}
+        font-style:normal;flex:none}
 
-/* barra de acoes */
-.acts{display:flex;gap:8px;flex-wrap:wrap;padding:14px 22px;background:#fff;
+/* barra de ações */
+.acts{display:flex;gap:7px;flex-wrap:wrap;padding:12px 16px;background:#fff;
       border-bottom:1px solid var(--line)}
-.act{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);
-     background:#fff;border-radius:5px;padding:9px 14px;font-size:13.5px;
-     font-weight:600;color:var(--ink-2);cursor:pointer;font-family:inherit;
+@media(min-width:640px){.acts{padding:14px 22px;gap:8px}}
+.act{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);
+     background:#fff;border-radius:5px;padding:9px 12px;font-size:13px;font-weight:600;
+     color:var(--ink-2);cursor:pointer;font-family:inherit;
      transition:border-color .15s,background .15s}
 .act:hover{border-color:var(--ink-4);background:var(--paper)}
-.act svg{width:16px;height:16px;flex:none}
+.act svg{width:15px;height:15px;flex:none}
 .act.primary{background:var(--ember);border-color:var(--ember);color:#fff}
-.act.primary:hover{background:var(--ember-600);border-color:var(--ember-600)}
-.act.ghost{border:none;background:transparent;color:var(--ink-3)}
-.acts-sp{flex:1}
+.act.primary:hover{background:var(--ember-600)}
+.act.ghost{border-color:transparent;background:transparent;color:var(--ink-3)}
+.acts-sp{flex:1 1 auto}
 
-/* data + atividade */
-.strip{display:flex;align-items:center;gap:16px;flex-wrap:wrap;
-       padding:16px 22px;background:var(--paper);border-bottom:1px solid var(--line)}
-.tabs{display:inline-flex;background:var(--paper-3);border-radius:6px;padding:3px}
-.tab{border:none;background:transparent;font-family:inherit;font-size:13.5px;
-     font-weight:600;color:var(--ink-3);padding:8px 18px;border-radius:4px;cursor:pointer}
+/* faixa de data */
+.strip{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;
+       background:var(--paper);border-bottom:1px solid var(--line)}
+@media(min-width:640px){.strip{padding:16px 22px;gap:16px}}
+.tabs{display:inline-flex;background:var(--paper-3);border-radius:6px;padding:3px;
+      flex:1 1 auto}
+.tab{flex:1;border:none;background:transparent;font-family:inherit;font-size:13px;
+     font-weight:600;color:var(--ink-3);padding:9px 14px;border-radius:4px;
+     cursor:pointer;white-space:nowrap}
 .tab.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(20,31,41,.12)}
-.tab .n{font-size:11.5px;color:var(--ink-4);margin-left:6px}
+.tab .n{font-size:11px;color:var(--ink-4);margin-left:5px}
 .tab.on .n{color:var(--ember)}
-.strip-sp{flex:1}
-
-/* calendario proprio */
-.datepick{position:relative}
-.dbtn{display:inline-flex;align-items:center;gap:11px;border:1px solid var(--line);
-      background:#fff;border-radius:5px;padding:8px 14px;cursor:pointer;
-      font-family:inherit}
-.dbtn:hover{border-color:var(--ink-4)}
-.dbtn .dnum{font-family:var(--display);font-size:26px;color:var(--ink);line-height:1}
-.dbtn .dtx{text-align:left;line-height:1.25}
-.dbtn .dtx b{display:block;font-size:13px;color:var(--ink);font-weight:700}
-.dbtn .dtx span{display:block;font-size:11.5px;color:var(--ink-3)}
+.strip-sp{flex:1 1 auto;display:none}
+@media(min-width:900px){.strip-sp{display:block}}
+.dategrp{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .nav{display:inline-flex;gap:4px}
 .nav button{width:34px;height:34px;border:1px solid var(--line);background:#fff;
-            border-radius:5px;cursor:pointer;color:var(--ink-2);display:grid;
-            place-items:center;font-family:inherit;font-size:15px}
-.nav button:hover{border-color:var(--ink-4);background:var(--paper)}
-.today{border:1px solid var(--line);background:#fff;border-radius:5px;padding:8px 14px;
-       font-family:inherit;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer}
+  border-radius:5px;cursor:pointer;color:var(--ink-2);display:grid;place-items:center;
+  font-family:inherit;font-size:15px;flex:none}
+.nav button:hover{border-color:var(--ink-4)}
+.datepick{position:relative}
+.dbtn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);
+      background:#fff;border-radius:5px;padding:7px 12px;cursor:pointer;
+      font-family:inherit}
+.dbtn:hover{border-color:var(--ink-4)}
+.dbtn .dnum{font-family:var(--display);font-size:24px;color:var(--ink);line-height:1}
+.dbtn .dtx{text-align:left;line-height:1.25}
+.dbtn .dtx b{display:block;font-size:12.5px;color:var(--ink);font-weight:700}
+.dbtn .dtx span{display:block;font-size:11px;color:var(--ink-3)}
+.today{border:1px solid var(--line);background:#fff;border-radius:5px;padding:9px 13px;
+       font-family:inherit;font-size:12.5px;font-weight:600;color:var(--ink-2);
+       cursor:pointer;flex:none}
 .today:hover{border-color:var(--ink-4)}
-
-.cal{position:absolute;top:calc(100% + 8px);right:0;z-index:40;background:#fff;
-     border:1px solid var(--line);border-radius:8px;padding:16px;width:308px;
+.cal{position:absolute;top:calc(100% + 8px);right:0;z-index:70;background:#fff;
+     border:1px solid var(--line);border-radius:8px;padding:14px;width:290px;
      box-shadow:0 16px 44px -14px rgba(20,31,41,.34);display:none}
+@media(max-width:520px){.cal{right:auto;left:0}}
 .cal.open{display:block}
-.cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.cal-h b{font-family:var(--display);font-size:19px;color:var(--ink);letter-spacing:.01em}
+.cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-h b{font-family:var(--display);font-size:18px;color:var(--ink)}
 .cal-h button{width:28px;height:28px;border:1px solid var(--line);background:#fff;
               border-radius:4px;cursor:pointer;color:var(--ink-2);font-family:inherit}
-.cal-h button:hover{background:var(--paper)}
-.cal-w{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:6px}
-.cal-w span{text-align:center;font-size:10.5px;font-weight:700;color:var(--ink-4);
-            text-transform:uppercase;letter-spacing:.06em;padding:4px 0}
+.cal-w{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:5px}
+.cal-w span{text-align:center;font-size:10px;font-weight:700;color:var(--ink-4);
+            text-transform:uppercase;padding:4px 0}
 .cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
 .cal-g button{aspect-ratio:1;border:none;background:transparent;border-radius:5px;
-  font-family:inherit;font-size:13.5px;font-weight:500;color:var(--ink-2);cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:500;color:var(--ink-2);cursor:pointer;
   position:relative;font-variant-numeric:tabular-nums}
 .cal-g button:hover{background:var(--paper-2)}
 .cal-g button.out{color:var(--ink-4);opacity:.45}
@@ -119,400 +145,441 @@ body{margin:0;background:var(--paper-2);color:var(--ink-2);font-family:var(--bod
 .cal-g button .bk{position:absolute;left:50%;transform:translateX(-50%);bottom:5px;
                   width:4px;height:4px;border-radius:50%;background:var(--ember)}
 .cal-g button.sel .bk{background:#fff}
-.cal-f{margin-top:12px;padding-top:12px;border-top:1px solid var(--paper-3);
-       display:flex;justify-content:space-between;align-items:center}
-.cal-f span{font-size:11.5px;color:var(--ink-3);display:flex;align-items:center;gap:6px}
+.cal-f{margin-top:11px;padding-top:11px;border-top:1px solid var(--paper-3);
+       display:flex;justify-content:space-between;align-items:center;gap:10px}
+.cal-f span{font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:6px}
 .cal-f i{width:4px;height:4px;border-radius:50%;background:var(--ember);display:block}
-.cal-f button{border:none;background:transparent;font-family:inherit;font-size:12.5px;
+.cal-f button{border:none;background:transparent;font-family:inherit;font-size:12px;
               font-weight:700;color:var(--ember-700);cursor:pointer}
 
-/* ─── FOCO DO DIA ─── */
-.focus{display:grid;gap:14px;padding:22px;background:var(--paper);
+/* ── A: foco ── */
+.focus{display:grid;gap:12px;padding:16px;background:var(--paper);
        border-bottom:1px solid var(--line)}
-@media(min-width:840px){.focus{grid-template-columns:1.1fr 1.1fr 1.6fr}}
-.big{background:#fff;border:1px solid var(--line);border-radius:7px;padding:20px 22px;
-     position:relative;overflow:hidden}
+@media(min-width:640px){.focus{padding:22px;gap:14px}}
+@media(min-width:900px){.focus{grid-template-columns:1.1fr 1.1fr 1.6fr}}
+.big{background:#fff;border:1px solid var(--line);border-radius:7px;padding:18px}
 .big.alert{border-color:var(--warn-line);background:var(--warn-bg)}
-.big .lb{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+.big .lb{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
          color:var(--ink-3)}
-.big .vl{font-family:var(--display);font-size:52px;line-height:1;color:var(--ink);
-         margin-top:8px;letter-spacing:.01em}
+.big .vl{font-family:var(--display);font-size:44px;line-height:1;color:var(--ink);
+         margin-top:6px}
+@media(min-width:640px){.big .vl{font-size:52px}}
 .big.alert .vl{color:var(--warn)}
-.big .hint{font-size:13px;color:var(--ink-3);margin-top:8px}
-.big .go{margin-top:14px;display:inline-block;font-size:13px;font-weight:700;
-         color:var(--ember-700);text-decoration:none;border-bottom:1.5px solid var(--ember-100)}
-.money .vl{color:var(--ember-700);font-size:44px}
-
+.big .hint{font-size:12.5px;color:var(--ink-3);margin-top:7px}
+.big .go{margin-top:12px;display:inline-block;font-size:12.5px;font-weight:700;
+         color:var(--ember-700);text-decoration:none;
+         border-bottom:1.5px solid var(--ember-100)}
+.money .vl{color:var(--ember-700);font-size:38px}
+@media(min-width:640px){.money .vl{font-size:44px}}
 .minis{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
        border:1px solid var(--line);border-radius:7px;overflow:hidden}
 @media(min-width:560px){.minis{grid-template-columns:repeat(4,1fr)}}
-.mini{background:#fff;padding:15px 14px}
-.mini b{display:block;font-size:23px;font-weight:800;color:var(--ink);
+.mini{background:#fff;padding:14px}
+.mini b{display:block;font-size:22px;font-weight:800;color:var(--ink);
         font-variant-numeric:tabular-nums;line-height:1.15}
-.mini span{display:block;font-size:11.5px;color:var(--ink-3);margin-top:3px;font-weight:500}
+.mini span{display:block;font-size:11px;color:var(--ink-3);margin-top:3px;font-weight:500}
 .mini.z b{color:var(--ink-4)}
 
-/* ─── AGENDA ─── */
-.sched{padding:22px}
-.slotgrp{margin-bottom:22px}
-.sh{display:flex;align-items:center;gap:14px;margin-bottom:11px}
-.sh .hr{font-family:var(--display);font-size:29px;color:var(--ink);line-height:1;
-        letter-spacing:.01em}
-.sh .meta{font-size:12.5px;color:var(--ink-3);font-weight:600}
-.sh .sp{flex:1}
-.bar{width:120px;height:5px;border-radius:3px;background:var(--paper-3);overflow:hidden}
+/* ── B: sete cartões (estrutura atual) ── */
+.stats7{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;padding:16px;
+        background:var(--paper);border-bottom:1px solid var(--line)}
+@media(min-width:560px){.stats7{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1000px){.stats7{grid-template-columns:repeat(7,1fr);padding:22px}}
+.st7{background:#fff;border:1px solid var(--line);border-radius:6px;padding:13px 11px;
+     text-align:center}
+.st7 b{display:block;font-size:26px;font-weight:800;color:var(--ink);line-height:1.1;
+       font-variant-numeric:tabular-nums}
+.st7 span{display:block;font-size:11px;color:var(--ink-3);margin-top:4px;font-weight:500}
+.st7.hi{border-color:var(--warn-line);background:var(--warn-bg)}
+.st7.hi b{color:var(--warn)}
+.st7.mo{border-color:var(--ember-100);background:var(--ember-100)}
+.st7.mo b{color:var(--ember-700);font-size:21px}
+.st7.z b{color:var(--ink-4)}
+
+.hintbar{padding:0 16px 14px;background:var(--paper);font-size:12.5px;
+         color:var(--ink-3);text-align:center}
+@media(min-width:640px){.hintbar{padding:0 22px 16px}}
+
+/* ── agenda ── */
+.sched{padding:16px}
+@media(min-width:640px){.sched{padding:22px}}
+.slotgrp{margin-bottom:20px}
+.slotgrp:last-child{margin-bottom:0}
+.sh{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.sh .hr{font-family:var(--display);font-size:25px;color:var(--ink);line-height:1}
+.sh .meta{font-size:12px;color:var(--ink-3);font-weight:600}
+.sh .sp{flex:1 1 auto}
+.bar{width:100px;height:5px;border-radius:3px;background:var(--paper-3);overflow:hidden;
+     flex:none}
 .bar i{display:block;height:100%;background:var(--ember);border-radius:3px}
-.grid{display:grid;gap:9px;grid-template-columns:repeat(auto-fill,minmax(146px,1fr))}
-.s{border:1px solid var(--line);border-radius:7px;background:#fff;padding:13px;
-   min-height:104px;display:flex;flex-direction:column;position:relative;cursor:pointer;
+.grid{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
+@media(max-width:420px){.grid{grid-template-columns:repeat(2,1fr)}}
+.s{border:1px solid var(--line);border-radius:7px;background:#fff;padding:12px;
+   min-height:96px;display:flex;flex-direction:column;position:relative;cursor:pointer;
    transition:box-shadow .15s,transform .12s}
 .s:hover{box-shadow:0 6px 18px -8px rgba(20,31,41,.28);transform:translateY(-1px)}
-.s .id{font-size:11.5px;font-weight:800;color:var(--ink-4);letter-spacing:.06em}
-.s .nm{font-size:14.5px;font-weight:700;color:var(--ink);margin-top:7px;line-height:1.25}
-.s .st{font-size:11.5px;font-weight:600;margin-top:auto;padding-top:8px}
-.s .fin{position:absolute;top:11px;right:11px;font-size:10.5px;font-weight:800;
-        padding:3px 7px;border-radius:3px;letter-spacing:.02em}
+.s .id{font-size:11px;font-weight:800;color:var(--ink-4);letter-spacing:.06em}
+.s .nm{font-size:13.5px;font-weight:700;color:var(--ink);margin-top:6px;line-height:1.25;
+       word-break:break-word}
+.s .st{font-size:11px;font-weight:600;margin-top:auto;padding-top:7px}
+.s .fin{position:absolute;top:10px;right:10px;font-size:10px;font-weight:800;
+        padding:3px 6px;border-radius:3px}
 .s.free{background:var(--paper);border-style:dashed}
-.s.free .nm{color:var(--ink-4);font-weight:500;font-size:13px}
+.s.free .nm{color:var(--ink-4);font-weight:500;font-size:12.5px}
 .s.free .st{color:var(--ink-4)}
-.s.emb{background:var(--ok-bg);border-color:var(--ok-line)}
-.s.emb .st{color:var(--ok)}
-.s.wait{background:var(--warn-bg);border-color:var(--warn-line)}
-.s.wait .st{color:var(--warn)}
-.s.ns{background:var(--danger-bg);border-color:var(--danger-line)}
-.s.ns .st{color:var(--danger)}
-.s.res{background:#fff;border-color:var(--mist-200)}
-.s.res .st{color:var(--mist-700)}
+.s.emb{background:var(--ok-bg);border-color:var(--ok-line)} .s.emb .st{color:var(--ok)}
+.s.wait{background:var(--warn-bg);border-color:var(--warn-line)} .s.wait .st{color:var(--warn)}
+.s.ns{background:var(--danger-bg);border-color:var(--danger-line)} .s.ns .st{color:var(--danger)}
+.s.res{background:#fff;border-color:var(--mist-200)} .s.res .st{color:var(--mist-700)}
 .fin.due{background:var(--danger-bg);color:var(--danger)}
 .fin.paid{background:var(--ok-bg);color:var(--ok)}
-.s .quick{margin-top:9px;border:none;border-radius:4px;padding:7px;font-family:inherit;
-          font-size:12px;font-weight:700;cursor:pointer;background:var(--warn);color:#fff}
-.s .quick:hover{filter:brightness(.94)}
+.s .quick{margin-top:8px;border:none;border-radius:4px;padding:7px;font-family:inherit;
+          font-size:11.5px;font-weight:700;cursor:pointer;background:var(--warn);color:#fff}
 
-/* ─── ANOTACOES ─── */
-.notes{margin-top:44px;display:grid;gap:16px}
+/* ── notas ── */
+.legend{margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;padding:14px 16px;
+        background:#fff;border:1px solid var(--line);border-radius:6px}
+.lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-3);
+    font-weight:500}
+.lg i{width:14px;height:14px;border-radius:4px;display:block;border:1px solid;flex:none}
+.notes{margin-top:26px;display:grid;gap:14px}
 @media(min-width:820px){.notes{grid-template-columns:repeat(2,1fr)}}
 .note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--ember);
-      border-radius:5px;padding:20px 22px}
-.note h3{font-family:var(--display);font-size:20px;color:var(--ink);margin:0 0 9px;
-         letter-spacing:.01em}
-.note p{font-size:14.5px;color:var(--ink-3);margin:0;line-height:1.6}
-.note .ba{margin-top:12px;font-size:13px;display:grid;gap:5px}
+      border-radius:5px;padding:18px 20px}
+.note h3{font-family:var(--display);font-size:18px;color:var(--ink);margin:0 0 8px}
+.note p{font-size:14px;color:var(--ink-3);margin:0;line-height:1.6}
+.note .ba{margin-top:11px;font-size:12.5px;display:grid;gap:5px}
 .note .ba div{display:flex;gap:9px}
-.note .ba b{font-weight:700;min-width:56px}
+.note .ba b{font-weight:700;min-width:52px;flex:none}
 .note .ba .a{color:var(--danger)} .note .ba .d{color:var(--ok)}
 
-.legend{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap;padding:16px 22px;
-        background:#fff;border:1px solid var(--line);border-radius:6px}
-.lg{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-3);
-    font-weight:500}
-.lg i{width:14px;height:14px;border-radius:4px;display:block;border:1px solid}
+.callout{margin-top:26px;background:var(--mist-200);border-radius:6px;padding:18px 20px;
+         font-size:14px;color:var(--ink-2)}
+.callout b{color:var(--ink)}
+footer{margin-top:36px;font-size:12.5px;color:var(--ink-4)}
+a{color:var(--ember-700)}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <div class="doc-head">
-    <p class="eb">Trip Experience · proposta de redesign</p>
-    <h1>O painel, reorganizado</h1>
-    <p>A tela que a equipe abre 2.394 vezes. Hoje ela mostra sete números do mesmo
-      tamanho e seis botões sem nome. Aqui ela responde as três perguntas que importam
-      antes de qualquer clique. <strong>O calendário abaixo funciona — pode clicar.</strong></p>
+  <div class="doc">
+    <p class="eb">Trip Experience · proposta de redesign do painel</p>
+    <h1>Duas propostas</h1>
+    <p>A tela que a equipe abre 2.394 vezes. As duas usam o mesmo sistema de cores e
+      tipografia — o que muda é <strong>quanto da estrutura atual é preservada</strong>.
+      O calendário funciona nas duas: pode clicar.</p>
   </div>
 
-  <div class="app">
-
-    <div class="top">
-      <div class="brandmark"></div>
-      <div class="brand"><b>Trip Experience</b><small>Monte Verde · MG</small></div>
-      <div class="top-sp"></div>
-      <span class="sync"><i></i> Sincronizado</span>
-      <div class="who"><span class="av">E</span> Enzo</div>
-    </div>
-
-    <div class="acts">
-      <button class="act primary">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-             stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        Nova reserva
+  <div class="switch">
+    <div class="sw-in">
+      <button id="btnB" class="on">
+        <b>Proposta 1 · Organizar a casa</b>
+        <span>Mesma estrutura que a equipe já usa. Só o design system aplicado
+          e as duplicações removidas.</span>
       </button>
-      <button class="act">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
-        Financeiro
+      <button id="btnA">
+        <b>Proposta 2 · Reorganizar de verdade</b>
+        <span>Hierarquia nova: o que exige ação fica grande, o resto vira consulta.</span>
       </button>
-      <button class="act">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round"><path d="M12 3v12"/><path d="M8 11l4 4 4-4"/>
-             <path d="M4 19h16"/></svg>
-        Relatório
-      </button>
-      <button class="act">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round"><rect x="3" y="7" width="18" height="11" rx="2"/>
-             <path d="M8 7v11"/></svg>
-        Promoções
-      </button>
-      <div class="acts-sp"></div>
-      <button class="act ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round"><circle cx="12" cy="12" r="3"/>
-             <path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.3 1a7 7 0 0 0-1.7-1L14.5 2h-4l-.4 2.6a7 7 0 0 0-1.7 1l-2.3-1-2 3.4L6 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 1.7 1l.4 2.6h4l.4-2.6a7 7 0 0 0 1.7-1l2.3 1 2-3.4-2-1.5c.1-.3.1-.7.1-1z"/></svg>
-        Configurações
-      </button>
-      <button class="act ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/>
-             <path d="M10 17l-5-5 5-5"/><path d="M5 12h11"/></svg>
-        Sair
-      </button>
-    </div>
-
-    <div class="strip">
-      <div class="tabs">
-        <button class="tab on">Quadriciclo <span class="n">7</span></button>
-        <button class="tab">Jeep <span class="n">2</span></button>
-      </div>
-      <div class="strip-sp"></div>
-      <div class="nav"><button id="prev">‹</button><button id="next">›</button></div>
-      <div class="datepick">
-        <button class="dbtn" id="dbtn">
-          <span class="dnum" id="dnum">20</span>
-          <span class="dtx"><b id="dwd">Quinta-feira</b><span id="dmo">Agosto de 2026</span></span>
-        </button>
-        <div class="cal" id="cal">
-          <div class="cal-h">
-            <button id="cprev">‹</button>
-            <b id="cmo">Agosto 2026</b>
-            <button id="cnext">›</button>
-          </div>
-          <div class="cal-w"><span>D</span><span>S</span><span>T</span><span>Q</span>
-            <span>Q</span><span>S</span><span>S</span></div>
-          <div class="cal-g" id="cg"></div>
-          <div class="cal-f">
-            <span><i></i> tem reserva</span>
-            <button id="ctoday">Ir para hoje</button>
-          </div>
-        </div>
-      </div>
-      <button class="today" id="btoday">Hoje</button>
-    </div>
-
-    <div class="focus">
-      <div class="big alert">
-        <div class="lb">Esperando embarque</div>
-        <div class="vl">1</div>
-        <div class="hint">Karina · Q1 · saiu 10:00</div>
-        <a class="go" href="#">Confirmar embarque →</a>
-      </div>
-      <div class="big money">
-        <div class="lb">Falta receber hoje</div>
-        <div class="vl">R$ 120</div>
-        <div class="hint">1 reserva com saldo em aberto</div>
-        <a class="go" href="#">Ver quem deve →</a>
-      </div>
-      <div class="minis">
-        <div class="mini"><b>2</b><span>Reservas</span></div>
-        <div class="mini"><b>1</b><span>Check-in feito</span></div>
-        <div class="mini z"><b>0</b><span>Não compareceu</span></div>
-        <div class="mini"><b>54</b><span>Vagas livres</span></div>
-      </div>
-    </div>
-
-    <div class="sched">
-      <div class="slotgrp">
-        <div class="sh">
-          <span class="hr">10:00</span>
-          <span class="meta">1 de 7 ocupadas</span>
-          <span class="sp"></span>
-          <span class="bar"><i style="width:14%"></i></span>
-        </div>
-        <div class="grid">
-          <div class="s wait">
-            <span class="fin paid">Pago</span>
-            <span class="id">Q1</span><span class="nm">Karina</span>
-            <span class="st">Esperando embarque</span>
-            <button class="quick">Confirmar embarque</button>
-          </div>
-          <div class="s free"><span class="id">Q2</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q3</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q4</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q5</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q6</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q7</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-        </div>
-      </div>
-
-      <div class="slotgrp">
-        <div class="sh">
-          <span class="hr">11:00</span>
-          <span class="meta">1 de 7 ocupadas</span>
-          <span class="sp"></span>
-          <span class="bar"><i style="width:14%"></i></span>
-        </div>
-        <div class="grid">
-          <div class="s res">
-            <span class="fin due">Falta 120</span>
-            <span class="id">Q1</span><span class="nm">Renan e Jaque</span>
-            <span class="st">Reservado</span>
-          </div>
-          <div class="s free"><span class="id">Q2</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q3</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q4</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q5</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q6</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q7</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-        </div>
-      </div>
-
-      <div class="slotgrp" style="margin-bottom:0">
-        <div class="sh">
-          <span class="hr">16:00</span>
-          <span class="meta">2 de 7 ocupadas · combo</span>
-          <span class="sp"></span>
-          <span class="bar"><i style="width:29%"></i></span>
-        </div>
-        <div class="grid">
-          <div class="s emb"><span class="fin paid">Pago</span>
-            <span class="id">Q1</span><span class="nm">Rosane</span>
-            <span class="st">Embarcado 16:04</span></div>
-          <div class="s emb"><span class="fin paid">Pago</span>
-            <span class="id">Q2</span><span class="nm">Rosane</span>
-            <span class="st">Embarcado 16:04</span></div>
-          <div class="s ns"><span class="id">Q3</span><span class="nm">Milena</span>
-            <span class="st">Não compareceu</span></div>
-          <div class="s free"><span class="id">Q4</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q5</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q6</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-          <div class="s free"><span class="id">Q7</span><span class="nm">Livre</span>
-            <span class="st">Toque para reservar</span></div>
-        </div>
-      </div>
     </div>
   </div>
 
-  <div class="legend">
-    <span class="lg"><i style="background:#fff;border-color:var(--mist-200)"></i> Reservado</span>
-    <span class="lg"><i style="background:var(--warn-bg);border-color:var(--warn-line)"></i> Esperando embarque</span>
-    <span class="lg"><i style="background:var(--ok-bg);border-color:var(--ok-line)"></i> Embarcado</span>
-    <span class="lg"><i style="background:var(--danger-bg);border-color:var(--danger-line)"></i> Não compareceu</span>
-    <span class="lg"><i style="background:var(--paper);border-color:var(--line);border-style:dashed"></i> Livre</span>
+  <!-- ══════════ PROPOSTA 1 ══════════ -->
+  <div class="panelwrap on" id="wrapB">
+    <div class="app">
+      <div class="top">
+        <div class="wordmark">TRIP MV<small>Monte Verde · MG</small></div>
+        <div class="top-sp"></div>
+        <span class="sync"><i></i> Sincronizado</span>
+        <div class="who"><span class="av">E</span> Enzo</div>
+      </div>
+
+      <div class="acts">
+        <button class="act primary">＋ Nova reserva</button>
+        <button class="act">⟳ Atualizar</button>
+        <button class="act">↓ Relatório</button>
+        <button class="act">▤ Financeiro</button>
+        <button class="act">◫ Promoções</button>
+        <div class="acts-sp"></div>
+        <button class="act ghost">⚙ Configurações</button>
+        <button class="act ghost">⇤ Sair</button>
+      </div>
+
+      <div class="strip">
+        <div class="tabs">
+          <button class="tab on">Quadriciclo <span class="n">7</span></button>
+          <button class="tab">Jeep <span class="n">2</span></button>
+        </div>
+        <div class="strip-sp"></div>
+        <div class="dategrp">
+          <div class="nav"><button data-d="-1">‹</button><button data-d="1">›</button></div>
+          <div class="datepick">
+            <button class="dbtn" data-cal>
+              <span class="dnum">20</span>
+              <span class="dtx"><b>Quinta-feira</b><span>Agosto de 2026</span></span>
+            </button>
+            <div class="cal">
+              <div class="cal-h"><button data-m="-1">‹</button><b></b><button data-m="1">›</button></div>
+              <div class="cal-w"><span>D</span><span>S</span><span>T</span><span>Q</span>
+                <span>Q</span><span>S</span><span>S</span></div>
+              <div class="cal-g"></div>
+              <div class="cal-f"><span><i></i> tem reserva</span><button data-today>Ir para hoje</button></div>
+            </div>
+          </div>
+          <button class="today" data-today>Hoje</button>
+        </div>
+      </div>
+
+      <div class="stats7">
+        <div class="st7"><b>2</b><span>Reservas</span></div>
+        <div class="st7"><b>1</b><span>Check-ins</span></div>
+        <div class="st7 z"><b>0</b><span>Embarcados</span></div>
+        <div class="st7 hi"><b>1</b><span>Aguard. embarque</span></div>
+        <div class="st7 z"><b>0</b><span>No-show</span></div>
+        <div class="st7 mo"><b>R$ 120</b><span>Falta receber</span></div>
+        <div class="st7"><b>54</b><span>Disponíveis</span></div>
+      </div>
+      <p class="hintbar">Mostrando apenas os <strong>Quadriciclos</strong> — os números
+        acima e a agenda são só deste painel.</p>
+
+      <div class="sched" data-sched></div>
+    </div>
+
+    <div class="legend" data-legend></div>
+
+    <div class="notes">
+      <div class="note"><h3>Mesma estrutura, roupa nova</h3>
+        <p>Os sete cartões continuam onde estão. Ninguém precisa reaprender nada —
+          só passam a usar a cor da marca em vez do azul de template.</p>
+        <div class="ba">
+          <div><b class="a">Antes</b><span>Sete azuis e verdes de biblioteca</span></div>
+          <div><b class="d">Depois</b><span>Paleta da Trip, mesma disposição</span></div>
+        </div></div>
+      <div class="note"><h3>Dois cartões ganham destaque</h3>
+        <p>"Aguardando embarque" e "Falta receber" recebem cor de atenção. É o mínimo
+          pra olho encontrar o que exige ação — sem mudar de lugar.</p>
+        <div class="ba">
+          <div><b class="a">Antes</b><span>Sete iguais, nenhum se destaca</span></div>
+          <div><b class="d">Depois</b><span>Dois marcados, cinco neutros</span></div>
+        </div></div>
+      <div class="note"><h3>Botão com nome</h3>
+        <p>Os seis ícones sem rótulo ganham texto. Continua a mesma barra, no mesmo
+          lugar — só deixa de ser adivinhação.</p>
+        <div class="ba">
+          <div><b class="a">Antes</b><span>6 ícones, 6 cores, zero texto</span></div>
+          <div><b class="d">Depois</b><span>Nome ao lado, laranja só no principal</span></div>
+        </div></div>
+      <div class="note"><h3>Calendário da marca</h3>
+        <p>Sai a caixinha cinza do Windows, entra um calendário próprio que marca com
+          um ponto os dias que já têm reserva.</p>
+        <div class="ba">
+          <div><b class="a">Antes</b><span>Seletor nativo do navegador</span></div>
+          <div><b class="d">Depois</b><span>Calendário próprio</span></div>
+        </div></div>
+    </div>
   </div>
 
-  <div class="notes">
-    <div class="note">
-      <h3>Dois números grandes, o resto pequeno</h3>
-      <p>Só duas coisas exigem ação agora: quem está esperando embarque e quanto falta
-        receber. Elas ficam grandes. O resto vira consulta.</p>
-      <div class="ba">
-        <div><b class="a">Antes</b><span>7 números iguais — nenhum se destaca</span></div>
-        <div><b class="d">Depois</b><span>2 grandes + 4 pequenos</span></div>
+  <!-- ══════════ PROPOSTA 2 ══════════ -->
+  <div class="panelwrap" id="wrapA">
+    <div class="app">
+      <div class="top">
+        <div class="wordmark">TRIP MV<small>Monte Verde · MG</small></div>
+        <div class="top-sp"></div>
+        <span class="sync"><i></i> Sincronizado</span>
+        <div class="who"><span class="av">E</span> Enzo</div>
       </div>
+
+      <div class="acts">
+        <button class="act primary">＋ Nova reserva</button>
+        <button class="act">▤ Financeiro</button>
+        <button class="act">↓ Relatório</button>
+        <button class="act">◫ Promoções</button>
+        <div class="acts-sp"></div>
+        <button class="act ghost">⚙ Configurações</button>
+        <button class="act ghost">⇤ Sair</button>
+      </div>
+
+      <div class="strip">
+        <div class="tabs">
+          <button class="tab on">Quadriciclo <span class="n">7</span></button>
+          <button class="tab">Jeep <span class="n">2</span></button>
+        </div>
+        <div class="strip-sp"></div>
+        <div class="dategrp">
+          <div class="nav"><button data-d="-1">‹</button><button data-d="1">›</button></div>
+          <div class="datepick">
+            <button class="dbtn" data-cal>
+              <span class="dnum">20</span>
+              <span class="dtx"><b>Quinta-feira</b><span>Agosto de 2026</span></span>
+            </button>
+            <div class="cal">
+              <div class="cal-h"><button data-m="-1">‹</button><b></b><button data-m="1">›</button></div>
+              <div class="cal-w"><span>D</span><span>S</span><span>T</span><span>Q</span>
+                <span>Q</span><span>S</span><span>S</span></div>
+              <div class="cal-g"></div>
+              <div class="cal-f"><span><i></i> tem reserva</span><button data-today>Ir para hoje</button></div>
+            </div>
+          </div>
+          <button class="today" data-today>Hoje</button>
+        </div>
+      </div>
+
+      <div class="focus">
+        <div class="big alert">
+          <div class="lb">Esperando embarque</div>
+          <div class="vl">1</div>
+          <div class="hint">Karina · Q1 · saiu 10:00</div>
+          <a class="go" href="#">Confirmar embarque →</a>
+        </div>
+        <div class="big money">
+          <div class="lb">Falta receber hoje</div>
+          <div class="vl">R$ 120</div>
+          <div class="hint">1 reserva com saldo em aberto</div>
+          <a class="go" href="#">Ver quem deve →</a>
+        </div>
+        <div class="minis">
+          <div class="mini"><b>2</b><span>Reservas</span></div>
+          <div class="mini"><b>1</b><span>Check-in feito</span></div>
+          <div class="mini z"><b>0</b><span>Não compareceu</span></div>
+          <div class="mini"><b>54</b><span>Vagas livres</span></div>
+        </div>
+      </div>
+
+      <div class="sched" data-sched></div>
     </div>
 
-    <div class="note">
-      <h3>Botão sem nome não existe</h3>
-      <p>Os seis ícones coloridos viram botões com texto. Quem construiu o sistema errou
-        um deles no teste — quem só opera não tem chance.</p>
-      <div class="ba">
-        <div><b class="a">Antes</b><span>6 ícones, 6 cores, zero rótulo</span></div>
-        <div><b class="d">Depois</b><span>Nome visível, laranja só na ação principal</span></div>
-      </div>
-    </div>
+    <div class="legend" data-legend></div>
 
-    <div class="note">
-      <h3>Cor é situação. Dinheiro é selo.</h3>
-      <p>A cor do card diz onde a pessoa está: reservado, esperando, embarcou, faltou.
-        O que ela deve aparece como etiqueta no canto — dois assuntos, dois lugares.</p>
-      <div class="ba">
-        <div><b class="a">Antes</b><span>Card azul-escuro com "Falta 150" no meio do verde</span></div>
-        <div><b class="d">Depois</b><span>Cor = pessoa · Etiqueta = dinheiro</span></div>
-      </div>
-    </div>
-
-    <div class="note">
-      <h3>Ação onde o problema está</h3>
-      <p>"Confirmar embarque" aparece dentro do card de quem está esperando. Não precisa
-        abrir a reserva, rolar e procurar.</p>
-      <div class="ba">
-        <div><b class="a">Antes</b><span>~15 cliques no fluxo completo</span></div>
-        <div><b class="d">Depois</b><span>Ação frequente a 1 clique</span></div>
-      </div>
-    </div>
-
-    <div class="note">
-      <h3>Calendário da marca</h3>
-      <p>O seletor de data era o do Windows — cinza, quadrado, sem relação nenhuma com a
-        Trip. Agora é próprio, e marca com um ponto os dias que já têm reserva.</p>
-      <div class="ba">
-        <div><b class="a">Antes</b><span>Caixinha nativa do navegador</span></div>
-        <div><b class="d">Depois</b><span>Calendário próprio, com dias ocupados visíveis</span></div>
-      </div>
-    </div>
-
-    <div class="note">
-      <h3>A vaga livre convida</h3>
-      <p>Vaga vazia deixa de ser um quadrado apagado e passa a dizer o que fazer.
-        Contorno tracejado indica espaço disponível sem competir com quem tem reserva.</p>
-      <div class="ba">
-        <div><b class="a">Antes</b><span>Ícone cinza e a palavra "LIVRE"</span></div>
-        <div><b class="d">Depois</b><span>"Toque para reservar"</span></div>
-      </div>
+    <div class="notes">
+      <div class="note"><h3>Dois números grandes, o resto pequeno</h3>
+        <p>Só duas coisas exigem ação agora: quem espera embarque e quanto falta
+          receber. Elas ficam grandes. O resto vira consulta.</p>
+        <div class="ba">
+          <div><b class="a">Antes</b><span>7 números iguais</span></div>
+          <div><b class="d">Depois</b><span>2 grandes + 4 pequenos</span></div>
+        </div></div>
+      <div class="note"><h3>Ação onde o problema está</h3>
+        <p>"Confirmar embarque" aparece dentro do card de quem está esperando. Não
+          precisa abrir a reserva, rolar e procurar.</p>
+        <div class="ba">
+          <div><b class="a">Antes</b><span>~15 cliques no fluxo completo</span></div>
+          <div><b class="d">Depois</b><span>Ação frequente a 1 clique</span></div>
+        </div></div>
+      <div class="note"><h3>Cor é situação. Dinheiro é selo.</h3>
+        <p>A cor do card diz onde a pessoa está. O que ela deve aparece como etiqueta
+          no canto — dois assuntos, dois lugares.</p>
+        <div class="ba">
+          <div><b class="a">Antes</b><span>"Falta 150" no meio do card verde</span></div>
+          <div><b class="d">Depois</b><span>Cor = pessoa · Etiqueta = dinheiro</span></div>
+        </div></div>
+      <div class="note"><h3>A vaga livre convida</h3>
+        <p>Vaga vazia deixa de ser quadrado apagado e passa a dizer o que fazer.</p>
+        <div class="ba">
+          <div><b class="a">Antes</b><span>Ícone cinza e a palavra "LIVRE"</span></div>
+          <div><b class="d">Depois</b><span>"Toque para reservar"</span></div>
+        </div></div>
     </div>
   </div>
+
+  <div class="callout">
+    <b>O logo real ainda não está aqui.</b> Ele fica guardado no servidor do sistema e
+    eu não tenho o arquivo. Nos dois exemplos está escrito o nome em texto — quando o
+    arquivo entrar, o logo aparece no lugar. Preferi deixar assim a inventar um.
+  </div>
+
+  <footer>Proposta interna · Tolissano para Trip Experience Quadriciclos MV ·
+    <a href="marca.html">ver o Manual da Marca →</a></footer>
 </div>
 
 <script>
 (function(){
-  var WD=['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
-  var MO=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto',
-          'Setembro','Outubro','Novembro','Dezembro'];
-  var TODAY=new Date(2026,7,20);
-  var sel=new Date(2026,7,20);
-  var view=new Date(2026,7,1);
-  var BOOKED={'2026-8-16':1,'2026-8-20':1,'2026-8-21':1,'2026-8-22':1,'2026-8-27':1,
-              '2026-8-29':1,'2026-8-30':1};
-  var cal=document.getElementById('cal');
+var WD=['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
+var MO=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+var TODAY=new Date(2026,7,20);
+var BOOKED={'2026-7-16':1,'2026-7-20':1,'2026-7-21':1,'2026-7-22':1,'2026-7-27':1,'2026-7-29':1,'2026-9-16':1};
 
+var SCHED=[
+ {h:'10:00',oc:1,tot:7,cards:[
+   {cls:'wait',id:'Q1',nm:'Karina',st:'Esperando embarque',fin:['paid','Pago'],quick:'Confirmar embarque'},
+   {cls:'free',id:'Q2'},{cls:'free',id:'Q3'},{cls:'free',id:'Q4'},
+   {cls:'free',id:'Q5'},{cls:'free',id:'Q6'},{cls:'free',id:'Q7'}]},
+ {h:'11:00',oc:1,tot:7,cards:[
+   {cls:'res',id:'Q1',nm:'Renan e Jaque',st:'Reservado',fin:['due','Falta 120']},
+   {cls:'free',id:'Q2'},{cls:'free',id:'Q3'},{cls:'free',id:'Q4'},
+   {cls:'free',id:'Q5'},{cls:'free',id:'Q6'},{cls:'free',id:'Q7'}]},
+ {h:'16:00',oc:3,tot:7,cards:[
+   {cls:'emb',id:'Q1',nm:'Rosane',st:'Embarcado 16:04',fin:['paid','Pago']},
+   {cls:'emb',id:'Q2',nm:'Rosane',st:'Embarcado 16:04',fin:['paid','Pago']},
+   {cls:'ns',id:'Q3',nm:'Milena',st:'Não compareceu'},
+   {cls:'free',id:'Q4'},{cls:'free',id:'Q5'},{cls:'free',id:'Q6'},{cls:'free',id:'Q7'}]}
+];
+
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+
+function schedHTML(){
+  return SCHED.map(function(g){
+    var cards=g.cards.map(function(c){
+      if(c.cls==='free') return '<div class="s free"><span class="id">'+c.id+
+        '</span><span class="nm">Livre</span><span class="st">Toque para reservar</span></div>';
+      return '<div class="s '+c.cls+'">'+
+        (c.fin?'<span class="fin '+c.fin[0]+'">'+esc(c.fin[1])+'</span>':'')+
+        '<span class="id">'+c.id+'</span><span class="nm">'+esc(c.nm)+'</span>'+
+        '<span class="st">'+esc(c.st)+'</span>'+
+        (c.quick?'<button class="quick">'+esc(c.quick)+'</button>':'')+'</div>';
+    }).join('');
+    return '<div class="slotgrp"><div class="sh"><span class="hr">'+g.h+
+      '</span><span class="meta">'+g.oc+' de '+g.tot+' ocupadas</span><span class="sp"></span>'+
+      '<span class="bar"><i style="width:'+Math.round(g.oc/g.tot*100)+'%"></i></span></div>'+
+      '<div class="grid">'+cards+'</div></div>';
+  }).join('');
+}
+var LEG='<span class="lg"><i style="background:#fff;border-color:var(--mist-200)"></i> Reservado</span>'+
+ '<span class="lg"><i style="background:var(--warn-bg);border-color:var(--warn-line)"></i> Esperando embarque</span>'+
+ '<span class="lg"><i style="background:var(--ok-bg);border-color:var(--ok-line)"></i> Embarcado</span>'+
+ '<span class="lg"><i style="background:var(--danger-bg);border-color:var(--danger-line)"></i> Não compareceu</span>'+
+ '<span class="lg"><i style="background:var(--paper);border-color:var(--line);border-style:dashed"></i> Livre</span>';
+
+document.querySelectorAll('[data-sched]').forEach(function(n){n.innerHTML=schedHTML()});
+document.querySelectorAll('[data-legend]').forEach(function(n){n.innerHTML=LEG});
+
+/* seletor de proposta */
+var bA=document.getElementById('btnA'),bB=document.getElementById('btnB'),
+    wA=document.getElementById('wrapA'),wB=document.getElementById('wrapB');
+function show(which){
+  var a=which==='A';
+  wA.classList.toggle('on',a); wB.classList.toggle('on',!a);
+  bA.classList.toggle('on',a); bB.classList.toggle('on',!a);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+bA.addEventListener('click',function(){show('A')});
+bB.addEventListener('click',function(){show('B')});
+
+/* calendarios (um por proposta) */
+document.querySelectorAll('.datepick').forEach(function(dp){
+  var sel=new Date(TODAY), view=new Date(TODAY.getFullYear(),TODAY.getMonth(),1);
+  var cal=dp.querySelector('.cal'), btn=dp.querySelector('[data-cal]');
+  var grp=dp.closest('.dategrp');
   function key(d){return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()}
   function same(a,b){return key(a)===key(b)}
-
   function paintBtn(){
-    document.getElementById('dnum').textContent=sel.getDate();
-    document.getElementById('dwd').textContent=WD[sel.getDay()];
-    document.getElementById('dmo').textContent=MO[sel.getMonth()]+' de '+sel.getFullYear();
+    btn.querySelector('.dnum').textContent=sel.getDate();
+    btn.querySelector('.dtx b').textContent=WD[sel.getDay()];
+    btn.querySelector('.dtx span').textContent=MO[sel.getMonth()]+' de '+sel.getFullYear();
   }
-
   function paintCal(){
-    document.getElementById('cmo').textContent=MO[view.getMonth()]+' '+view.getFullYear();
-    var g=document.getElementById('cg'); g.innerHTML='';
+    cal.querySelector('.cal-h b').textContent=MO[view.getMonth()]+' '+view.getFullYear();
+    var g=cal.querySelector('.cal-g'); g.innerHTML='';
     var first=new Date(view.getFullYear(),view.getMonth(),1);
     var start=new Date(first); start.setDate(1-first.getDay());
     for(var i=0;i<42;i++){
       var d=new Date(start); d.setDate(start.getDate()+i);
-      var b=document.createElement('button');
-      b.textContent=d.getDate();
-      if(d.getMonth()!==view.getMonth()) b.className='out';
-      if(same(d,sel)) b.className=(b.className+' sel').trim();
-      else if(same(d,TODAY)) b.className=(b.className+' now').trim();
-      if(BOOKED[key(d)]&&!same(d,sel)){
-        var dot=document.createElement('span'); dot.className='bk'; b.appendChild(dot);
-      }
+      var b=document.createElement('button'); b.textContent=d.getDate();
+      var cls=[];
+      if(d.getMonth()!==view.getMonth()) cls.push('out');
+      if(same(d,sel)) cls.push('sel'); else if(same(d,TODAY)) cls.push('now');
+      b.className=cls.join(' ');
+      if(BOOKED[key(d)]&&!same(d,sel)){var dot=document.createElement('span');dot.className='bk';b.appendChild(dot)}
       (function(dd){b.addEventListener('click',function(){
         sel=dd; view=new Date(dd.getFullYear(),dd.getMonth(),1);
         paintBtn(); paintCal(); cal.classList.remove('open');
@@ -520,36 +587,19 @@ body{margin:0;background:var(--paper-2);color:var(--ink-2);font-family:var(--bod
       g.appendChild(b);
     }
   }
-
-  document.getElementById('dbtn').addEventListener('click',function(e){
-    e.stopPropagation(); cal.classList.toggle('open');
-    view=new Date(sel.getFullYear(),sel.getMonth(),1); paintCal();
-  });
-  document.addEventListener('click',function(e){
-    if(!cal.contains(e.target)) cal.classList.remove('open');
-  });
+  btn.addEventListener('click',function(e){e.stopPropagation();
+    cal.classList.toggle('open'); view=new Date(sel.getFullYear(),sel.getMonth(),1); paintCal()});
   cal.addEventListener('click',function(e){e.stopPropagation()});
-  document.getElementById('cprev').addEventListener('click',function(){
-    view.setMonth(view.getMonth()-1); paintCal();
-  });
-  document.getElementById('cnext').addEventListener('click',function(){
-    view.setMonth(view.getMonth()+1); paintCal();
-  });
-  document.getElementById('ctoday').addEventListener('click',function(){
+  document.addEventListener('click',function(){cal.classList.remove('open')});
+  cal.querySelector('[data-m="-1"]').addEventListener('click',function(){view.setMonth(view.getMonth()-1);paintCal()});
+  cal.querySelector('[data-m="1"]').addEventListener('click',function(){view.setMonth(view.getMonth()+1);paintCal()});
+  grp.querySelectorAll('[data-today]').forEach(function(t){t.addEventListener('click',function(){
     sel=new Date(TODAY); view=new Date(TODAY.getFullYear(),TODAY.getMonth(),1);
-    paintBtn(); paintCal(); cal.classList.remove('open');
-  });
-  document.getElementById('btoday').addEventListener('click',function(){
-    sel=new Date(TODAY); paintBtn();
-  });
-  document.getElementById('prev').addEventListener('click',function(){
-    sel.setDate(sel.getDate()-1); sel=new Date(sel); paintBtn();
-  });
-  document.getElementById('next').addEventListener('click',function(){
-    sel.setDate(sel.getDate()+1); sel=new Date(sel); paintBtn();
-  });
-
+    paintBtn(); paintCal(); cal.classList.remove('open')})});
+  grp.querySelectorAll('[data-d]').forEach(function(n){n.addEventListener('click',function(){
+    sel.setDate(sel.getDate()+Number(n.dataset.d)); sel=new Date(sel); paintBtn()})});
   paintBtn(); paintCal();
+});
 })();
 </script>
 </body>

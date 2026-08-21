@@ -207,6 +207,43 @@ footer p{font-size:13.5px;color:var(--ink-4);line-height:1.8}
   section{page-break-inside:avoid;padding:48px 0}
   .cover-in{padding:60px 32px}
 }
+
+.mark{display:none}
+.wm{font-family:var(--display);font-weight:800;font-size:26px;line-height:.95;
+     color:var(--ink);text-align:center;letter-spacing:.02em}
+.d-no .wm{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.dotwm{font-family:var(--display);font-weight:800;font-size:11px;color:#fff;
+       background:linear-gradient(135deg,var(--ember),var(--ember-700));
+       padding:7px 8px;border-radius:6px;line-height:1;letter-spacing:.04em;flex:none}
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+img{max-width:100%;display:block}
+.wrap{padding:0 18px}
+@media(min-width:720px){.wrap{padding:0 32px}}
+section{padding:56px 0}
+@media(min-width:720px){section{padding:96px 0}}
+.cover-in{padding:64px 18px 72px}
+@media(min-width:720px){.cover-in{padding:110px 32px 120px}}
+.cover h1{font-size:clamp(46px,13vw,150px)}
+.cover .sub{font-size:17px}
+@media(min-width:720px){.cover .sub{font-size:21px}}
+section h2{font-size:clamp(28px,7vw,58px)}
+.lede{font-size:16px}
+@media(min-width:720px){.lede{font-size:18px}}
+.sp1{font-size:clamp(34px,9vw,56px)}
+.sp2{font-size:clamp(22px,5.5vw,30px)}
+.card .disp{height:150px}
+@media(min-width:720px){.card .disp{height:190px}}
+.ph .disp{height:150px}
+@media(min-width:720px){.ph .disp{height:200px}}
+.lp{height:250px}
+@media(min-width:720px){.lp{height:330px}}
+.slots{grid-template-columns:repeat(2,1fr)}
+@media(min-width:560px){.slots{grid-template-columns:repeat(4,1fr)}}
+.tr{grid-template-columns:1fr}
+@media(min-width:780px){.tr{grid-template-columns:190px 1fr}}
+.mb{padding:14px}
+@media(min-width:720px){.mb{padding:22px}}
 </style>
 </head>
 <body>
@@ -253,15 +290,16 @@ footer p{font-size:13.5px;color:var(--ink-4);line-height:1.8}
       <strong>Mas ciano e magenta puros não viram cor de tela</strong> — cansam a
       vista, brigam com a fotografia e desaparecem quando impressos pequenos.</p>
 
+    <p class="lede" style="margin-top:22px"><em>Os exemplos abaixo mostram o princípio. O logo real entra assim que o arquivo estiver disponível.</em></p>
     <div class="two">
       <div class="card d-yes">
-        <div class="disp"><span class="pill y">Use assim</span><div class="mark"></div></div>
+        <div class="disp"><span class="pill y">Use assim</span><span class="wm">TRIP<br>EXPERIENCE</span></div>
         <div class="body"><b>Como selo</b>
           <span>Sobre fundo claro e neutro, com espaço em volta. O logo aparece,
             a marca respira.</span></div>
       </div>
       <div class="card d-no">
-        <div class="disp"><span class="pill n">Evite</span><div class="mark"></div></div>
+        <div class="disp"><span class="pill n">Evite</span><span class="wm">TRIP<br>EXPERIENCE</span></div>
         <div class="body"><b>Como fundo de tela</b>
           <span>As cores do logo espalhadas pela interface. Vira ruído — e o próprio
             logo some no meio.</span></div>
@@ -397,7 +435,7 @@ footer p{font-size:13.5px;color:var(--ink-4);line-height:1.8}
       <figure class="mock">
         <figcaption>Painel interno · agenda do dia</figcaption>
         <div class="mb">
-          <div class="app-top"><div class="dot"></div>
+          <div class="app-top"><span class="dotwm">TRIP</span>
             <div><b>Trip MV</b><small>Quadriciclo · 20 de agosto</small></div></div>
           <div class="app-nav"><i class="on">Agenda</i><i>Parceiros</i><i>Configurações</i></div>
           <div class="slots">
@@ -417,7 +455,7 @@ footer p{font-size:13.5px;color:var(--ink-4);line-height:1.8}
         <figcaption>Voucher do cliente</figcaption>
         <div class="mb">
           <div class="vch">
-            <div class="vch-t"><div class="dot"></div><b>Voucher de Reserva</b></div>
+            <div class="vch-t"><span class="dotwm">TRIP</span><b>Voucher de Reserva</b></div>
             <div class="vch-b">
               <div class="vr"><span>Cliente</span><b>Luciano</b></div>
               <div class="vr"><span>Data</span><b>16/10/2026</b></div>
