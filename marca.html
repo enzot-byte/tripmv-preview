@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manual da Marca — Trip Experience Quadriciclos MV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF7F1; --paper-2:#F3ECE1; --paper-3:#E9E0D2; --line:#DED4C3;
+  --ink:#141F29; --ink-2:#3B4B59; --ink-3:#6D7D8B; --ink-4:#9CA8B2;
+  --ember:#DC5F16; --ember-600:#C24F13; --ember-700:#A03D08; --ember-100:#FBE7D7;
+  --mist:#3E7391; --mist-700:#2A5670; --mist-200:#D4E2EB;
+  --ok:#2F7D4F; --ok-bg:#E2F0E7;
+  --warn:#B8791A; --warn-bg:#FBEFD8;
+  --danger:#B33A2B; --danger-bg:#F9E3DF;
+  --display:'Barlow Condensed',system-ui,sans-serif;
+  --body:'Inter',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+  --w:1000px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink-2);
+     font-family:var(--body);font-size:16px;line-height:1.7;
+     -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;
+         letter-spacing:.005em;line-height:.94;color:var(--ink);margin:0;
+         text-wrap:balance}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+         text-transform:uppercase;color:var(--ember);margin:0 0 16px;font-weight:500}
+
+/* ─── CAPA ─── */
+.cover{background:linear-gradient(168deg,#FBF9F5 0%,#F8F1E6 42%,#F2E2CC 72%,#EBD2B2 100%);
+       border-bottom:1px solid var(--line)}
+.cover-in{max-width:var(--w);margin:0 auto;padding:110px 32px 120px}
+.cover h1{font-size:clamp(64px,12vw,150px);letter-spacing:-.02em;max-width:9ch}
+.cover .sub{margin-top:28px;font-size:21px;line-height:1.5;color:var(--ink);
+            max-width:38ch;font-weight:400}
+.stamp{display:inline-block;margin-top:40px;font-family:var(--mono);font-size:11px;
+       letter-spacing:.18em;text-transform:uppercase;color:var(--ember-700);
+       border:1.5px solid var(--ember);border-radius:2px;padding:9px 18px;
+       background:rgba(255,255,255,.55)}
+
+/* ─── SEÇÕES ─── */
+section{padding:96px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:clamp(34px,5vw,58px)}
+.lede{max-width:56ch;margin-top:22px;font-size:18px;line-height:1.65;color:var(--ink-2)}
+.lede strong{color:var(--ink);font-weight:600}
+
+/* ─── PILARES ─── */
+.pillars{display:grid;gap:1px;margin-top:52px;background:var(--line);
+         border:1px solid var(--line);border-radius:4px;overflow:hidden}
+@media(min-width:800px){.pillars{grid-template-columns:repeat(3,1fr)}}
+.pillar{background:#fff;padding:32px 28px}
+.pillar .k{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ember)}
+.pillar h3{font-size:24px;margin:14px 0 10px}
+.pillar p{font-size:15px;color:var(--ink-3);line-height:1.6}
+
+/* ─── LOGO ─── */
+.two{display:grid;gap:24px;margin-top:48px}
+@media(min-width:800px){.two{grid-template-columns:1fr 1fr}}
+.card{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff}
+.card .disp{height:190px;display:flex;align-items:center;justify-content:center;
+            position:relative}
+.card .body{padding:20px 24px;border-top:1px solid var(--line)}
+.card .body b{display:block;font-family:var(--display);font-weight:700;font-size:18px;
+              text-transform:uppercase;letter-spacing:.03em;color:var(--ink)}
+.card .body span{display:block;font-size:14.5px;color:var(--ink-3);margin-top:7px;
+                 line-height:1.55}
+.mark{width:96px;height:96px;border-radius:50%;flex:none;position:relative;
+      background:radial-gradient(circle at 33% 28%,#2AC7F0 0 25%,transparent 26%),
+                 radial-gradient(circle at 71% 60%,#F2318F 0 21%,transparent 22%),
+                 radial-gradient(circle at 45% 79%,#F5D915 0 17%,transparent 18%),
+                 #141A22;
+      box-shadow:0 0 0 3px #141A22,0 8px 24px rgba(20,31,41,.2)}
+.mark::after{content:'';position:absolute;inset:27%;border-radius:50%;background:#1F2833;
+             box-shadow:inset 0 3px 9px rgba(0,0,0,.55)}
+.d-yes .disp{background:var(--paper-2)}
+.d-no  .disp{background:linear-gradient(135deg,#2AC7F0,#F2318F 52%,#F5D915)}
+.pill{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9.5px;
+      letter-spacing:.16em;padding:5px 11px;border-radius:2px;text-transform:uppercase;
+      font-weight:500}
+.pill.y{background:var(--ok);color:#fff}
+.pill.n{background:var(--danger);color:#fff}
+
+/* ─── CORES ─── */
+.ramp{margin-top:44px}
+.ramp-h{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
+        padding-bottom:12px;border-bottom:1px solid var(--line)}
+.ramp-h h3{font-size:20px;letter-spacing:.06em;font-weight:700}
+.ramp-h em{font-style:normal;font-size:14px;color:var(--ink-3)}
+.sws{display:grid;gap:10px;margin-top:16px;
+     grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.sw{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#fff}
+.sw .f{height:94px}
+.sw .l{padding:11px 13px}
+.sw .l b{display:block;font-family:var(--mono);font-size:11px;font-weight:500;
+         color:var(--ink);letter-spacing:.02em}
+.sw .l i{display:block;font-style:normal;font-size:11px;color:var(--ink-4);margin-top:4px}
+
+/* ─── TIPOGRAFIA ─── */
+.trows{margin-top:44px;border-top:1px solid var(--line)}
+.tr{display:grid;gap:8px 32px;padding:26px 0;border-bottom:1px solid var(--paper-3);
+    grid-template-columns:1fr}
+@media(min-width:780px){.tr{grid-template-columns:190px 1fr;align-items:baseline}}
+.tr .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;
+       text-transform:uppercase;color:var(--ink-4)}
+.sp1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:56px;
+     line-height:.92;color:var(--ink);letter-spacing:-.01em}
+.sp2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:30px;
+     color:var(--ink);letter-spacing:.03em}
+.sp3{font-size:17px;color:var(--ink-2);max-width:56ch;line-height:1.65}
+.sp4{font-size:14px;color:var(--ink-3)}
+.sp5{font-family:var(--mono);font-size:14px;color:var(--mist-700);
+     font-variant-numeric:tabular-nums}
+.fonts{margin-top:32px;display:grid;gap:14px}
+@media(min-width:760px){.fonts{grid-template-columns:1fr 1fr}}
+.fbox{border:1px solid var(--line);border-radius:3px;background:#fff;padding:22px 24px}
+.fbox b{font-family:var(--display);font-weight:700;font-size:20px;text-transform:uppercase;
+        color:var(--ink);letter-spacing:.03em}
+.fbox span{display:block;font-size:14px;color:var(--ink-3);margin-top:6px}
+.fbox code{font-family:var(--mono);font-size:12px;color:var(--mist-700)}
+
+/* ─── FOTOGRAFIA ─── */
+.ph .disp{height:200px}
+.ph.good .disp{background:linear-gradient(180deg,#1E3550 0%,#4A6878 30%,#9C7050 52%,
+               #D08038 70%,#E2661F 84%,#6E3417 100%)}
+.ph.bad .disp{background:linear-gradient(180deg,#0EA5E9 0%,#4CC3F7 55%,#9BDCFB 100%)}
+.ph.good .body b{color:var(--ok)}
+.ph.bad  .body b{color:var(--danger)}
+
+/* ─── APLICADO ─── */
+.mocks{display:grid;gap:28px;margin-top:48px}
+@media(min-width:880px){.mocks{grid-template-columns:1fr 1fr}}
+figure.mock{margin:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;
+            background:#fff}
+figure.mock>figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-4);padding:14px 18px;
+  border-bottom:1px solid var(--line)}
+.mb{padding:22px;background:var(--paper)}
+.mock.full{grid-column:1/-1}
+.app-top{display:flex;align-items:center;gap:12px;background:var(--ink);
+         border-radius:4px 4px 0 0;padding:14px 16px}
+.dot{width:32px;height:32px;border-radius:6px;flex:none;
+     background:linear-gradient(135deg,var(--ember),var(--ember-700))}
+.app-top b{color:var(--paper);font-size:14px;font-weight:600}
+.app-top small{display:block;color:var(--ink-4);font-size:11.5px}
+.app-nav{display:flex;gap:7px;flex-wrap:wrap;background:#fff;padding:13px 16px;
+         border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.app-nav i{font-style:normal;font-size:12.5px;padding:7px 13px;border-radius:3px;
+           color:var(--ink-3);font-weight:500}
+.app-nav i.on{background:var(--ember);color:#fff;font-weight:600}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;background:#fff;
+       border:1px solid var(--line);border-top:none;border-radius:0 0 4px 4px;padding:16px}
+.slot{border:1px solid var(--line);border-radius:3px;padding:12px 6px;text-align:center;
+      background:var(--paper-2)}
+.slot b{display:block;font-size:13px;color:var(--ink);font-weight:600}
+.slot span{display:block;font-size:10px;margin-top:4px;color:var(--ink-4)}
+.slot.free{background:#fff}
+.slot.ok{background:var(--ok-bg);border-color:#B8D7C3} .slot.ok span{color:var(--ok)}
+.slot.bs{background:var(--danger-bg);border-color:#EDC2BA} .slot.bs span{color:var(--danger)}
+.slot.sel{background:var(--ember-100);border-color:var(--ember)}
+.slot.sel span{color:var(--ember-700);font-weight:600}
+.vch{background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.vch-t{background:var(--ink);padding:16px 18px;display:flex;align-items:center;gap:12px}
+.vch-t b{font-family:var(--display);font-weight:700;text-transform:uppercase;
+         color:var(--paper);font-size:17px;letter-spacing:.05em}
+.vch-b{padding:18px}
+.vr{display:flex;justify-content:space-between;gap:14px;padding:9px 0;
+    border-bottom:1px solid var(--paper-3);font-size:14px}
+.vr:last-of-type{border-bottom:none}
+.vr span{color:var(--ink-3)}
+.vr b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.vtot{margin-top:14px;background:var(--ember-100);border-radius:3px;padding:13px 15px;
+      display:flex;justify-content:space-between;align-items:center;
+      border-left:3px solid var(--ember)}
+.vtot b{font-size:22px;color:var(--ember-700);font-weight:700}
+.vtot span{font-size:12.5px;color:var(--ink-3)}
+.lp{position:relative;height:330px;overflow:hidden;
+    background:linear-gradient(172deg,#FBF9F5 0%,#F7EFE3 32%,#F1DFC5 58%,#E5C094 100%)}
+.lpx{position:absolute;inset:auto 0 0 0;padding:30px 30px 34px}
+.lpx h3{font-size:clamp(30px,5vw,48px);max-width:15ch;color:var(--ink)}
+.lpx p{margin-top:12px;font-size:14.5px;color:var(--ink-2);max-width:38ch}
+.cta{display:inline-block;margin-top:20px;background:var(--ember);color:#fff;
+     font-weight:600;font-size:15px;padding:14px 30px;border-radius:3px;
+     text-decoration:none;box-shadow:0 4px 18px rgba(220,95,22,.28)}
+
+/* ─── NÃO FAZER ─── */
+.dont{display:grid;gap:16px;margin-top:44px}
+@media(min-width:780px){.dont{grid-template-columns:1fr 1fr}}
+.d{border:1px solid var(--line);border-left:3px solid var(--danger);border-radius:3px;
+   background:#fff;padding:22px 24px}
+.d h3{font-size:17px;color:var(--danger);letter-spacing:.04em;margin-bottom:9px;
+      font-weight:700}
+.d p{font-size:14.5px;color:var(--ink-3);line-height:1.6}
+
+footer{padding:60px 0 80px}
+footer p{font-size:13.5px;color:var(--ink-4);line-height:1.8}
+
+@media print{
+  body{background:#fff}
+  section{page-break-inside:avoid;padding:48px 0}
+  .cover-in{padding:60px 32px}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover-in">
+    <p class="eyebrow">Trip Experience Quadriciclos MV · Monte Verde · MG</p>
+    <h1>Manual<br>da Marca</h1>
+    <p class="sub">Como a Trip Experience se apresenta — na tela, no papel e na trilha.</p>
+    <span class="stamp">Luz da Mantiqueira · versão 1</span>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">01 · A essência</p>
+    <h2>Vocês não vendem quadriciclo.<br>Vendem o fim de tarde na serra.</h2>
+    <p class="lede">Em 424 publicações, a mesma coisa se repete: névoa na montanha,
+      fogueira, silhueta contra o sol se pondo. Ninguém guarda a foto do veículo —
+      guarda a foto da vista. <strong>É disso que a marca é feita.</strong></p>
+
+    <div class="pillars">
+      <div class="pillar"><span class="k">01</span>
+        <h3>Aventura de verdade</h3>
+        <p>Trilha, poeira, motor. Real — não é parque temático, não é passeio
+          de shopping.</p></div>
+      <div class="pillar"><span class="k">02</span>
+        <h3>Natureza que impressiona</h3>
+        <p>A Mantiqueira é a estrela. O quadriciclo é o meio de chegar onde
+          ninguém chega a pé.</p></div>
+      <div class="pillar"><span class="k">03</span>
+        <h3>Cuidado que tranquiliza</h3>
+        <p>Guia junto, equipamento certo, hora marcada. Adrenalina sem susto.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">02 · O logo</p>
+    <h2>O gorila é selo.<br>Não é a cor do sistema.</h2>
+    <p class="lede">O logo tem personalidade e funciona muito bem onde ele nasceu:
+      colado no capacete, estampado na camiseta, no adesivo do quadriciclo.
+      <strong>Mas ciano e magenta puros não viram cor de tela</strong> — cansam a
+      vista, brigam com a fotografia e desaparecem quando impressos pequenos.</p>
+
+    <div class="two">
+      <div class="card d-yes">
+        <div class="disp"><span class="pill y">Use assim</span><div class="mark"></div></div>
+        <div class="body"><b>Como selo</b>
+          <span>Sobre fundo claro e neutro, com espaço em volta. O logo aparece,
+            a marca respira.</span></div>
+      </div>
+      <div class="card d-no">
+        <div class="disp"><span class="pill n">Evite</span><div class="mark"></div></div>
+        <div class="body"><b>Como fundo de tela</b>
+          <span>As cores do logo espalhadas pela interface. Vira ruído — e o próprio
+            logo some no meio.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">03 · As cores</p>
+    <h2>Luz da Mantiqueira</h2>
+    <p class="lede">Tiradas da hora em que vocês mais fotografam. Fundo claro e quente
+      para a foto brilhar, o âmbar do pôr do sol só onde se clica, o azul da serra
+      dando apoio.</p>
+
+    <div class="ramp">
+      <div class="ramp-h"><h3>Fundo</h3><em>a neblina da manhã — nunca branco puro</em></div>
+      <div class="sws">
+        <div class="sw"><div class="f" style="background:#FAF7F1"></div><div class="l"><b>#FAF7F1</b><i>fundo geral</i></div></div>
+        <div class="sw"><div class="f" style="background:#F3ECE1"></div><div class="l"><b>#F3ECE1</b><i>faixas e blocos</i></div></div>
+        <div class="sw"><div class="f" style="background:#E9E0D2"></div><div class="l"><b>#E9E0D2</b><i>divisórias</i></div></div>
+        <div class="sw"><div class="f" style="background:#DED4C3"></div><div class="l"><b>#DED4C3</b><i>bordas</i></div></div>
+      </div>
+    </div>
+
+    <div class="ramp">
+      <div class="ramp-h"><h3>Tinta</h3><em>a serra ao longe — textos e cabeçalhos</em></div>
+      <div class="sws">
+        <div class="sw"><div class="f" style="background:#141F29"></div><div class="l"><b>#141F29</b><i>títulos</i></div></div>
+        <div class="sw"><div class="f" style="background:#3B4B59"></div><div class="l"><b>#3B4B59</b><i>texto corrido</i></div></div>
+        <div class="sw"><div class="f" style="background:#6D7D8B"></div><div class="l"><b>#6D7D8B</b><i>secundário</i></div></div>
+        <div class="sw"><div class="f" style="background:#9CA8B2"></div><div class="l"><b>#9CA8B2</b><i>legendas</i></div></div>
+      </div>
+    </div>
+
+    <div class="ramp">
+      <div class="ramp-h"><h3>Ação</h3><em>o pôr do sol e a fogueira — só onde se clica</em></div>
+      <div class="sws">
+        <div class="sw"><div class="f" style="background:#DC5F16"></div><div class="l"><b>#DC5F16</b><i>botão principal</i></div></div>
+        <div class="sw"><div class="f" style="background:#C24F13"></div><div class="l"><b>#C24F13</b><i>ao pressionar</i></div></div>
+        <div class="sw"><div class="f" style="background:#A03D08"></div><div class="l"><b>#A03D08</b><i>texto em laranja</i></div></div>
+        <div class="sw"><div class="f" style="background:#FBE7D7"></div><div class="l"><b>#FBE7D7</b><i>destaque suave</i></div></div>
+      </div>
+    </div>
+
+    <div class="ramp">
+      <div class="ramp-h"><h3>Apoio</h3><em>o azul da serra — informação e links</em></div>
+      <div class="sws">
+        <div class="sw"><div class="f" style="background:#3E7391"></div><div class="l"><b>#3E7391</b><i>links</i></div></div>
+        <div class="sw"><div class="f" style="background:#2A5670"></div><div class="l"><b>#2A5670</b><i>links escuros</i></div></div>
+        <div class="sw"><div class="f" style="background:#D4E2EB"></div><div class="l"><b>#D4E2EB</b><i>caixa de aviso</i></div></div>
+      </div>
+    </div>
+
+    <div class="ramp">
+      <div class="ramp-h"><h3>Situação</h3><em>significam estado — nunca são escolha estética</em></div>
+      <div class="sws">
+        <div class="sw"><div class="f" style="background:#2F7D4F"></div><div class="l"><b>#2F7D4F</b><i>embarcado · pago</i></div></div>
+        <div class="sw"><div class="f" style="background:#B8791A"></div><div class="l"><b>#B8791A</b><i>aguardando</i></div></div>
+        <div class="sw"><div class="f" style="background:#B33A2B"></div><div class="l"><b>#B33A2B</b><i>no-show · erro</i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">04 · A tipografia</p>
+    <h2>Peso no título,<br>calma no corpo</h2>
+    <p class="lede">O título é condensado e pesado — carrega a adrenalina. O texto é
+      limpo e arejado — carrega a confiança. Nada de letra de graffiti: cansa e some
+      em cima de foto.</p>
+
+    <div class="fonts">
+      <div class="fbox"><b>Barlow Condensed</b>
+        <span>Títulos e destaques. Condensada, técnica, com peso.</span>
+        <code>600 · 700 · 800 — gratuita (Google Fonts)</code></div>
+      <div class="fbox"><b>Inter</b>
+        <span>Texto corrido, formulários, o sistema inteiro.</span>
+        <code>400 · 500 · 600 · 700 — gratuita (Google Fonts)</code></div>
+    </div>
+
+    <div class="trows">
+      <div class="tr"><div class="k">Título grande</div>
+        <div class="sp1">Aventura de verdade</div></div>
+      <div class="tr"><div class="k">Título de seção</div>
+        <div class="sp2">Escolha seu horário</div></div>
+      <div class="tr"><div class="k">Texto corrido</div>
+        <div class="sp3">Trilha guiada de 2 horas saindo do centro de Monte Verde,
+          com parada no mirante para o pôr do sol.</div></div>
+      <div class="tr"><div class="k">Apoio</div>
+        <div class="sp4">Capacete obrigatório · chegue 25 minutos antes</div></div>
+      <div class="tr"><div class="k">Números e datas</div>
+        <div class="sp5">R$ 150,00 &nbsp;·&nbsp; 16/10/2026 &nbsp;·&nbsp; 10:00</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">05 · A fotografia</p>
+    <h2>A regra mais importante<br>deste manual</h2>
+    <p class="lede">A foto é o produto. Tudo o mais — cor, botão, caixa — existe para
+      ela aparecer. <strong>Se a interface competir com a foto, a interface está
+      errada.</strong></p>
+
+    <div class="two">
+      <figure class="card ph good">
+        <div class="disp"></div>
+        <figcaption class="body"><b>Sim — a luz de vocês</b>
+          <span>Fim de tarde, névoa, contraluz, fogueira. Tons quentes e profundos.
+            É o que já está no Instagram.</span></figcaption>
+      </figure>
+      <figure class="card ph bad">
+        <div class="disp"></div>
+        <figcaption class="body"><b>Não — céu de meio-dia</b>
+          <span>Luz dura, azul chapado, sem sombra. Parece foto de catálogo — e não
+            vende passeio nenhum.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">06 · Aplicado</p>
+    <h2>As três telas que importam</h2>
+    <p class="lede">A mesma marca do painel interno até a página que o cliente vê.
+      Hoje cada uma dessas telas usa uma cor diferente.</p>
+
+    <div class="mocks">
+      <figure class="mock">
+        <figcaption>Painel interno · agenda do dia</figcaption>
+        <div class="mb">
+          <div class="app-top"><div class="dot"></div>
+            <div><b>Trip MV</b><small>Quadriciclo · 20 de agosto</small></div></div>
+          <div class="app-nav"><i class="on">Agenda</i><i>Parceiros</i><i>Configurações</i></div>
+          <div class="slots">
+            <div class="slot ok"><b>Q1</b><span>Embarcado</span></div>
+            <div class="slot ok"><b>Q2</b><span>Embarcado</span></div>
+            <div class="slot bs"><b>Q3</b><span>No-show</span></div>
+            <div class="slot sel"><b>Q4</b><span>Falta R$ 150</span></div>
+            <div class="slot free"><b>Q5</b><span>Livre</span></div>
+            <div class="slot free"><b>Q6</b><span>Livre</span></div>
+            <div class="slot free"><b>Q7</b><span>Livre</span></div>
+            <div class="slot free"><b>TR4</b><span>2/4 lugares</span></div>
+          </div>
+        </div>
+      </figure>
+
+      <figure class="mock">
+        <figcaption>Voucher do cliente</figcaption>
+        <div class="mb">
+          <div class="vch">
+            <div class="vch-t"><div class="dot"></div><b>Voucher de Reserva</b></div>
+            <div class="vch-b">
+              <div class="vr"><span>Cliente</span><b>Luciano</b></div>
+              <div class="vr"><span>Data</span><b>16/10/2026</b></div>
+              <div class="vr"><span>Horário</span><b>10:00</b></div>
+              <div class="vr"><span>Quadriciclo</span><b>Q4</b></div>
+              <div class="vtot"><span>Total</span><b>R$ 150,00</b></div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <figure class="mock full">
+        <figcaption>Página do site · primeira dobra</figcaption>
+        <div class="lp">
+          <div class="lpx">
+            <h3>O pôr do sol da Mantiqueira, de cima de um quadriciclo</h3>
+            <p>Monte Verde · MG — trilhas guiadas, city tour e base camp.</p>
+            <a class="cta" href="#">Reservar meu passeio</a>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">07 · O que evitar</p>
+    <h2>Seis coisas que<br>quebram a marca</h2>
+    <div class="dont">
+      <div class="d"><h3>Branco puro</h3>
+        <p>#FFFFFF ao lado de uma foto de fim de tarde vira mancha fria. O off-white
+          pertence à mesma luz.</p></div>
+      <div class="d"><h3>Laranja em tudo</h3>
+        <p>O âmbar marca a ação — botão, item selecionado, valor a pagar. Se aparece
+          em tudo, deixa de indicar qualquer coisa.</p></div>
+      <div class="d"><h3>Cor sem significado</h3>
+        <p>Verde, âmbar e vermelho querem dizer situação: embarcado, aguardando,
+          no-show. Nunca são enfeite.</p></div>
+      <div class="d"><h3>Cores do logo na interface</h3>
+        <p>Ciano e magenta puros são do adesivo. Na tela, cansam a vista e apagam
+          a fotografia.</p></div>
+      <div class="d"><h3>Foto de meio-dia</h3>
+        <p>Luz dura e céu chapado não são a Mantiqueira de vocês. Fotografem no
+          começo e no fim do dia.</p></div>
+      <div class="d"><h3>Tudo com o mesmo peso</h3>
+        <p>Se sete números têm o mesmo tamanho, nenhum é importante. O que exige
+          ação vem maior.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Manual da Marca</strong> · Trip Experience Quadriciclos MV · Monte Verde, MG<br>
+      Desenvolvido por Tolissano · agosto de 2026 · versão 1, para aprovação</p>
+  </div>
+</footer>
+
+</body>
+</html>
